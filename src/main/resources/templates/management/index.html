@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<!-- Page content goes here -->
+<div class="container">
+    <p>This is Management\Index. Only people with role_management can see sales list</p>
+    <div align="center">
+        <h1>Sales Records</h1>
+        <a href="new">Enter New Sale</a>
+        <br/><br/>
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sale : ${listSale}">
+                <td th:text="${sale.id}">ID</td>
+                <td th:text="${sale.item}">Item Name</td>
+                <td th:text="${sale.quantity}">Quantity</td>
+                <td th:text="${sale.amount}">Amount</td>
+                <td>
+                    <a th:href="@{'/management/edit/' + ${sale.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/management/delete/' + ${sale.id}}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer th:insert="fragments.html :: footer"></footer>
+</body>
+</html>

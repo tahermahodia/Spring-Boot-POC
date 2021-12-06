@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<!-- Page content goes here -->
+<div align="center">
+    <div class="container-fluid">
+        <h4>Complex Gallery</h4>
+        <div class="row d-inline-flex border-right-0" style="border-width:thick">
+            <!-- Gallery Item 1 -->
+
+            <div class="col-6 col-sm-4 col-md-3 p-2" th:onclick="window.location.href = '/evosys/bankaccount/uploadexcel';">
+                <div class="card h-100">
+                    <img class="card-img-top" th:src="@{/images/excelupload.png}"/>
+                    <h4 class="card-title text-center">Excel Upload</h4>
+                    <a class="nav-link" href="#" th:href="@{/profile/index}">Profile</a>
+                </div>
+            </div>
+
+            <!-- Gallery Item 2 -->
+            <div class="col-6 col-sm-4 col-md-3 p-2" th:onclick="window.location.href = '/evosys/management/index';">
+                <div class="card h-100">
+                    <img class="card-img-top" th:src="@{/images/csvdownload.png}"/>
+                    <h4 class="card-title text-center">Csv Download</h4>
+                </div>
+            </div>
+            <!-- Gallery Item 3 -->
+            <div class="col-6 col-sm-4 col-md-3 p-2">
+                <div class="card h-100">
+                    <img class="card-img-top" th:src="@{/images/csv.png}"/>
+                    <h4 class="card-title text-center">Csv Upload</h4>
+                </div>
+            </div>
+            <!-- Gallery Item 4 -->
+            <div class="col-6 col-sm-4 col-md-3 p-2">
+                <div class="card h-100">
+                    <img class="card-img-top" th:src="@{/images/evosyslogo.png}"/>
+                    <h4 class="card-title text-center">ABC</h4>
+                </div>
+            </div>
+            <!-- Gallery Item 5 -->
+            <div class="col-6 col-sm-4 col-md-3 p-2">
+                <div class="card h-100">
+                    <img class="card-img-top" th:src="@{/images/evosyslogo.png}"/>
+                    <h4 class="card-title text-center">PQR</h4>
+                </div>
+            </div>
+            <!-- Gallery Item 6 -->
+            <div class="col-6 col-sm-4 col-md-3 p-2">
+                <div class="card h-100">
+                    <img class="card-img-top" th:src="@{/images/evosyslogo.png}"/>
+                    <h4 class="card-title text-center">XYZ</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:insert="fragments.html :: footer"></footer>
+</body>
+</html>

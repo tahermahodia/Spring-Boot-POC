@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<!-- Page content goes here -->
+<div class="container">
+    <p>This is Management\Index. New Records of sales can be inserted</p>
+    <div align="center">
+        <h1>Enter New Sale</h1>
+        <br/>
+        <form action="#" th:action="@{/management/save}" th:object="${sale}"
+              method="post">
+
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Item Name:</td>
+                    <td><input type="text" th:field="*{item}"/></td>
+                </tr>
+                <tr>
+                    <td>Quantity:</td>
+                    <td><input type="text" th:field="*{quantity}"/></td>
+                </tr>
+                <tr>
+                    <td>Amount (USD):</td>
+                    <td><input type="text" th:field="*{amount}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">Save</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<footer th:insert="fragments.html :: footer"></footer>
+</body>
+</html>
