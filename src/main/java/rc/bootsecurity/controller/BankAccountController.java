@@ -58,6 +58,8 @@ public class BankAccountController {
 
     @RequestMapping(value = "/sendMoney", method = RequestMethod.POST)
     public String processSendMoney(Model model, SendMoneyForm sendMoneyForm) {
+
+        //Pojo Validation logic to validate the pojo and return the list.
         /*ValidationErrorResponse va =null;
                 va= objectValidator.validate(sendMoneyForm, SendMoneyForm.class);
                 if (va!=null)
