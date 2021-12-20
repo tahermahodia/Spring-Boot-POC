@@ -11,6 +11,7 @@ public class BootsecurityApplicationTests {
 
     @Test
     public void contextLoads() {
+        System.out.println("TEst Case");
     }
 
 }

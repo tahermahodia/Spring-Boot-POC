@@ -1,7 +1,10 @@
-2021-12-06 11:31:53,830 INFO rc.bootsecurity.BootSecurityApplication [main] Starting BootSecurityApplication on IN-AH6LPW101605 with PID 5324 (C:\Users\Taher762320\IdeaProjects\Forms\target\classes started by Taher762320 in C:\Users\Taher762320\IdeaProjects\Forms)
-2021-12-06 11:31:53,849 DEBUG rc.bootsecurity.BootSecurityApplication [main] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
-2021-12-06 11:31:53,849 INFO rc.bootsecurity.BootSecurityApplication [main] No active profile set, falling back to default profiles: default
-2021-12-06 11:31:57,619 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] Code archive: C:\Users\Taher762320\.m2\repository\org\springframework\boot\spring-boot\2.1.0.RELEASE\spring-boot-2.1.0.RELEASE.jar
-2021-12-06 11:31:57,620 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] Code archive: C:\Users\Taher762320\.m2\repository\org\springframework\boot\spring-boot\2.1.0.RELEASE\spring-boot-2.1.0.RELEASE.jar
-2021-12-06 11:31:57,621 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
-2021-12-06 11:32:04,903 INFO rc.bootsecurity.BootSecurityApplication [main] Started BootSecurityApplication in 11.874 seconds (JVM running for 13.744)
+2021-12-20 08:19:33,754 INFO rc.bootsecurity.BootSecurityApplication [main] Starting BootSecurityApplication on IN-AH6LPW101605 with PID 14236 (C:\Users\Taher762320\IdeaProjects\Forms\target\classes started by Taher762320 in C:\Users\Taher762320\IdeaProjects\Forms)
+2021-12-20 08:19:33,807 DEBUG rc.bootsecurity.BootSecurityApplication [main] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2021-12-20 08:19:33,807 INFO rc.bootsecurity.BootSecurityApplication [main] No active profile set, falling back to default profiles: default
+2021-12-20 08:19:36,204 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] Code archive: C:\Users\Taher762320\.m2\repository\org\springframework\boot\spring-boot\2.1.0.RELEASE\spring-boot-2.1.0.RELEASE.jar
+2021-12-20 08:19:36,204 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] Code archive: C:\Users\Taher762320\.m2\repository\org\springframework\boot\spring-boot\2.1.0.RELEASE\spring-boot-2.1.0.RELEASE.jar
+2021-12-20 08:19:36,204 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2021-12-20 08:19:41,710 INFO rc.bootsecurity.BootSecurityApplication [main] Started BootSecurityApplication in 8.38 seconds (JVM running for 10.072)
+2021-12-20 08:29:26,050 INFO rc.bootsecurity.security.JWTFilter [https-jsse-nio-8443-exec-8] >>>Before JWT Token Validation: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsIklzc3VlciI6Iklzc3VlciIsImlhdCI6MTYzNzY1NzkwMiwidXNlcm5hbWUiOiJhZG1pbiJ9.yoX5R2JeJjbCe-0cn-5i3aqLShsnzaTFddrIvEaEg5s <<<
+2021-12-20 08:29:27,008 INFO rc.bootsecurity.security.JWTFilter [https-jsse-nio-8443-exec-9] >>>Before JWT Token Validation: eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsIklzc3VlciI6Iklzc3VlciIsImlhdCI6MTYzNzY1NzkwMiwidXNlcm5hbWUiOiJhZG1pbiJ9.yoX5R2JeJjbCe-0cn-5i3aqLShsnzaTFddrIvEaEg5s <<<
+2021-12-20 08:29:33,623 DEBUG org.springframework.jdbc.core.JdbcTemplate [https-jsse-nio-8443-exec-2] Executing SQL query [Select workbook_name from temp_workbook]

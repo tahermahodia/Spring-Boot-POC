@@ -74,4 +74,13 @@ public class BankAccountDAO extends JdbcDaoSupport {
         addAmount(toAccountId, amount);
         addAmount(fromAccountId, -amount);
     }
+
+    public List<String> getModuleName()
+    {
+        String sql = "Select workbook_name from temp_workbook";
+        Object[] params = new Object[]{};
+        BankAccountMapper mapper = new BankAccountMapper();
+        List<String> list = this.getJdbcTemplate().queryForList(sql,String.class);
+        return list;
+    }
 }
