@@ -84,5 +84,37 @@ function awesomeClick(){
                    alert("fail");
                }
          });*/
+
+
+
+
+       /*debugger;
+       var studentAnswers  = new Object();
+       studentAnswers.testId = 1;
+       studentAnswers.studentId = 1;
+       studentAnswers.questionIds =  new Array();
+       studentAnswers.questionIds[0] = "12345";
+       studentAnswers.answerIds =new Array();
+       studentAnswers.answerIds[0] = "12345";
+
+       $.ajax({
+           type : "POST",
+           url : "/evosys/bankaccount/student",
+           dataType: "json",
+           headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json'
+           },
+           data : JSON.stringify(studentAnswers),
+           success : function(response) {
+              alert('test submitted');
+           },
+           error : function(e) {
+              alert(e.message);
+           }
+       });*/
+
+
+
 }
 

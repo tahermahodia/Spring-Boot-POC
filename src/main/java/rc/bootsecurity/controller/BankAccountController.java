@@ -1,7 +1,5 @@
 package rc.bootsecurity.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddressList;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -22,14 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import rc.bootsecurity.Exception.BankTransactionException;
 import rc.bootsecurity.db.BankAccountDAO;
-import rc.bootsecurity.model.BankAccountInfo;
-import rc.bootsecurity.model.SendMoneyForm;
-import rc.bootsecurity.model.Test;
-import rc.bootsecurity.model.WorkBook;
+import rc.bootsecurity.model.*;
 import rc.bootsecurity.validator.ObjectValidator;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -44,16 +37,29 @@ import java.util.List;
 public class BankAccountController {
 
     private static final Logger logger = LoggerFactory.getLogger(BankAccountController.class);
-
+    private static final String UPLOADED_FOLDER = "D://temp//";
+    static Sheet sheet = null;
     @Autowired
     private BankAccountDAO bankAccountDAO;
-
     @Autowired
     private ObjectValidator objectValidator;
 
-    private static String UPLOADED_FOLDER = "D://temp//";
+    static boolean addMyValidation(int firstRow, int lastRow, int firstCol, int lastCol, String[] listOfValue) {
+        DataValidationHelper helper = sheet.getDataValidationHelper();
+        DataValidationConstraint constraint = helper.createExplicitListConstraint(listOfValue);
+        CellRangeAddressList range = new CellRangeAddressList(firstRow, lastRow, firstCol, lastCol);
+        DataValidation validation = helper.createValidation(constraint, range);
 
-    static Sheet sheet = null;
+        validation.setErrorStyle(DataValidation.ErrorStyle.STOP);
+        validation.setSuppressDropDownArrow(true);
+        validation.setEmptyCellAllowed(false);
+        validation.setShowPromptBox(true);
+        validation.setShowErrorBox(true);
+
+        sheet.addValidationData(validation);
+
+        return true;
+    }
 
     @RequestMapping(value = "/accountpage", method = RequestMethod.GET)
     public String showBankAccounts(Model model) {
@@ -94,7 +100,6 @@ public class BankAccountController {
         return "redirect:/bankaccount/accountpage";
     }
 
-
     @RequestMapping(value = "/uploadexcel", method = RequestMethod.GET)
     public ModelAndView viewUploadExcel(Model model) {
         logger.info(">>> Inside Upload Excel View Page <<<");
@@ -112,7 +117,6 @@ public class BankAccountController {
         mav.setViewName("bankaccount/downloadTemplate");
         return mav;
     }
-
 
     @RequestMapping(value = "/import", method = RequestMethod.POST)
     public ModelAndView mapReapExcelDatatoDB(@RequestParam("file") MultipartFile reapExcelDataFile, Model model) throws IOException {
@@ -166,24 +170,6 @@ public class BankAccountController {
         return mav;
     }
 
-
-    static boolean addMyValidation(int firstRow, int lastRow, int firstCol, int lastCol, String[] listOfValue) {
-        DataValidationHelper helper = sheet.getDataValidationHelper();
-        DataValidationConstraint constraint = helper.createExplicitListConstraint(listOfValue);
-        CellRangeAddressList range = new CellRangeAddressList(firstRow, lastRow, firstCol, lastCol);
-        DataValidation validation = helper.createValidation(constraint, range);
-
-        validation.setErrorStyle(DataValidation.ErrorStyle.STOP);
-        validation.setSuppressDropDownArrow(true);
-        validation.setEmptyCellAllowed(false);
-        validation.setShowPromptBox(true);
-        validation.setShowErrorBox(true);
-
-        sheet.addValidationData(validation);
-
-        return true;
-    }
-
     @RequestMapping(value = "/testAjax", method = RequestMethod.POST)
     @ResponseBody
     public String TestAjax(@RequestBody String model) {
@@ -213,5 +199,11 @@ public class BankAccountController {
                 body(resource);
     }
 
+    /*@RequestMapping(path = "/student",method = RequestMethod.POST)
+    public ModelAndView submitTest(@RequestBody StudentAnswers studentAnswers)
+    {
+        System.out.println(studentAnswers.toString());
+        return new ModelAndView("bankaccount/downloadTemplate");
+    }*/
 
 }
