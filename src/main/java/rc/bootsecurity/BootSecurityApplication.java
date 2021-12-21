@@ -17,7 +17,14 @@ import org.springframework.context.annotation.Bean;
 public class BootSecurityApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(BootSecurityApplication.class, args);
+        try {
+            SpringApplication.run(BootSecurityApplication.class, args);
+        }
+        catch (Throwable throwable)
+        {
+            System.out.println(throwable.toString());
+            throwable.printStackTrace();
+        }
     }
 
     @Override
@@ -54,7 +61,7 @@ public class BootSecurityApplication extends SpringBootServletInitializer {
     private Connector httpToHttpsRedirectConnector() {
         Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
         connector.setScheme("http");
-        connector.setPort(8082);
+        connector.setPort(8080);
         connector.setSecure(false);
         connector.setRedirectPort(8443);
         return connector;

@@ -9,7 +9,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import rc.bootsecurity.Exception.BankTransactionException;
 import rc.bootsecurity.mapper.BankAccountMapper;
+import rc.bootsecurity.mapper.WorkBookMapper;
 import rc.bootsecurity.model.BankAccountInfo;
+import rc.bootsecurity.model.WorkBook;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -75,12 +77,12 @@ public class BankAccountDAO extends JdbcDaoSupport {
         addAmount(fromAccountId, -amount);
     }
 
-    public List<String> getModuleName()
+    public List<WorkBook> getModuleName()
     {
-        String sql = "Select workbook_name from temp_workbook";
+        String sql = WorkBookMapper.BASE_SQL;
         Object[] params = new Object[]{};
-        BankAccountMapper mapper = new BankAccountMapper();
-        List<String> list = this.getJdbcTemplate().queryForList(sql,String.class);
+        WorkBookMapper mapper = new WorkBookMapper();
+        List<WorkBook> list = this.getJdbcTemplate().query(sql,params,mapper);
         return list;
     }
 }

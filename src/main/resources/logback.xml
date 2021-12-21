@@ -33,10 +33,10 @@
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
 
-    <!--<root level="ERROR,INFO">
+    <root level="ERROR,INFO">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE-ROLLING"/>
-    </root>-->
+    </root>
 
     <logger name="org.springframework.jdbc.core.JdbcTemplate">
         <level value="TRACE" />

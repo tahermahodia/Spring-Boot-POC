@@ -25,6 +25,7 @@ import rc.bootsecurity.db.BankAccountDAO;
 import rc.bootsecurity.model.BankAccountInfo;
 import rc.bootsecurity.model.SendMoneyForm;
 import rc.bootsecurity.model.Test;
+import rc.bootsecurity.model.WorkBook;
 import rc.bootsecurity.validator.ObjectValidator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,7 @@ import java.util.List;
 public class BankAccountController {
 
     private static final Logger logger = LoggerFactory.getLogger(BankAccountController.class);
+
     @Autowired
     private BankAccountDAO bankAccountDAO;
 
@@ -101,17 +103,15 @@ public class BankAccountController {
         return mav;
     }
 
-    @RequestMapping(value="/downloadTemplate",method = RequestMethod.GET)
-    public ModelAndView downloadTemplateGet(Model model)
-    {
+    @RequestMapping(value = "/downloadTemplate", method = RequestMethod.GET)
+    public ModelAndView downloadTemplateGet(Model model) {
         ModelAndView mav = new ModelAndView();
-        List<String> ModuleList = new ArrayList<String>();
-        ModuleList=bankAccountDAO.getModuleName();
-        model.addAttribute("moduleName",ModuleList);
+        List<WorkBook> ModuleList = new ArrayList<WorkBook>();
+        ModuleList = bankAccountDAO.getModuleName();
+        model.addAttribute("moduleName", ModuleList);
         mav.setViewName("bankaccount/downloadTemplate");
-        return  mav;
+        return mav;
     }
-
 
 
     @RequestMapping(value = "/import", method = RequestMethod.POST)
@@ -127,7 +127,7 @@ public class BankAccountController {
             tempStudent.setContent(row.getCell(1).getStringCellValue());
             tempStudentList.add(tempStudent);
         }
-        for (Test t1 :  tempStudentList) {
+        for (Test t1 : tempStudentList) {
             logger.info(t1.getId() + "");
             logger.info(t1.getContent());
         }
@@ -160,14 +160,10 @@ public class BankAccountController {
         out.close();
 
 
-
-
-
-
-        ModelAndView mav =new ModelAndView();
+        ModelAndView mav = new ModelAndView();
         mav.setViewName("bankaccount/uploadExcelPage");
-        mav.addObject("errorMessage","Upload Succesfully");//return new ModelAndView("/index");
-        return  mav;
+        mav.addObject("errorMessage", "Upload Succesfully");//return new ModelAndView("/index");
+        return mav;
     }
 
 
@@ -190,11 +186,9 @@ public class BankAccountController {
 
     @RequestMapping(value = "/testAjax", method = RequestMethod.POST)
     @ResponseBody
-    public String TestAjax(@RequestBody  String model) {
+    public String TestAjax(@RequestBody String model) {
         return "TestAjax";
     }
-
-
 
 
     @RequestMapping(path = "/download", method = RequestMethod.GET)
@@ -207,7 +201,7 @@ public class BankAccountController {
                 new ByteArrayResource(Files.readAllBytes(path));
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.CONTENT_DISPOSITION,
-                "attachment; filename="+param);
+                "attachment; filename=" + param);
         header.add("Cache-Control",
                 "no-cache, no-store, must-revalidate");
         header.add("Pragma", "no-cache");
@@ -218,7 +212,6 @@ public class BankAccountController {
                         parseMediaType("application/octet-stream")).
                 body(resource);
     }
-
 
 
 }

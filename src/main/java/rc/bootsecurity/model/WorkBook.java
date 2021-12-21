@@ -1,13 +1,26 @@
 package rc.bootsecurity.model;
 
-public class WorkBookTask {
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class WorkBook {
     private int workbookId;
     private String workbookName;
     private String trackName;
     private String whoCols;
     private String isActive;
     private String end_Date;
+    private WorkBookSheet workBookSheet;
 
+    public void setWorkBookSheet(WorkBookSheet workBookSheet) {
+        this.workBookSheet = workBookSheet;
+    }
+
+    public WorkBookSheet getWorkBookSheet() {
+        return workBookSheet;
+    }
 
     public int getWorkbookId() {
         return workbookId;
@@ -57,12 +70,6 @@ public class WorkBookTask {
         this.end_Date = end_Date;
     }
 
-    public WorkBookTask(int workbookId, String workbookName, String trackName, String whoCols, String isActive, String end_Date) {
-        this.workbookId = workbookId;
-        this.workbookName = workbookName;
-        this.trackName = trackName;
-        this.whoCols = whoCols;
-        this.isActive = isActive;
-        this.end_Date = end_Date;
+    public WorkBook() {
     }
 }
