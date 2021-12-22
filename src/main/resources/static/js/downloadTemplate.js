@@ -112,7 +112,7 @@ $('#choices-multiple-remove-button > option:selected').each(
      function(i){
          options[i] = $(this).text();
      });
-     downloadTemplateObject.moduleName=moduleName;
+     downloadTemplateObject.moduleName="StudentRecord.xlsx";
      downloadTemplateObject.moduleTasks =  new Array();
      downloadTemplateObject.moduleTasks =options;
      $.ajax({
@@ -125,7 +125,8 @@ $('#choices-multiple-remove-button > option:selected').each(
                 },
                 data : JSON.stringify(downloadTemplateObject),
                 success : function(response) {
-                   alert('test submitted');
+                debugger;
+                awesomeClick();
                 },
                 error : function(e) {
                    alert(e.message);

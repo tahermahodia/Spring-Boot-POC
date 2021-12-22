@@ -208,11 +208,9 @@ public class BankAccountController {
     }*/
 
     @RequestMapping(path = "/downloadTemplateModule",method = RequestMethod.POST)
-    public ModelAndView submitTest(@RequestBody DownloadTemplate downloadTemplate)
-    {
-        System.out.println(downloadTemplate.getModuleName());
-        downloadTemplate.getModuleTasks().forEach(System.out::println);
-        return new ModelAndView("bankaccount/downloadTemplate");
+    @ResponseBody
+    public DownloadTemplate submitTest(@RequestBody DownloadTemplate downloadTemplate) throws IOException {
+     return downloadTemplate;
     }
 
 }
