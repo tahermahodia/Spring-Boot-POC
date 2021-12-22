@@ -1,13 +1,10 @@
 $( document ).ready(function() {
-
-
    $("#dropOperator option").each(function() {
           $(this).siblings('[value="'+ this.value +'"]').remove();
         });
-
 $('#dropOperator').on('change', function (e) {
     var selected=$(this).val();
-    alert(selected);
+   // alert(selected);
     var valueSelected = this.value;
       var sel = $(this).val(),
           $ddl = $("#choices-multiple-remove-button");
@@ -22,26 +19,15 @@ $('#dropOperator').on('change', function (e) {
         $ddl.find("option[value='" + sel + "']").show();
       }
 }).change();
-
 $("#btn").on("click",function(){
 alert("hi");
 });
-
-
 });
-function loadTask(e)
-{
-    alert("Test-->"+e);
-}
+
 function awesomeClick(){
 //alert(${moduleName});
    var personJson = $('#moduleName1').val();
    debugger;
-   alert(personJson);
-
-
-
-
    $.ajax({
               url: "/evosys/bankaccount/download?param=StudentRecord.xlsx", //added '/' in the beginning
               type: 'GET',
@@ -114,6 +100,37 @@ function awesomeClick(){
            }
        });*/
 
+
+
+}
+function downloadFusionTemplate(){
+debugger;
+var downloadTemplateObject =new Object();
+var moduleName = $('#dropOperator').find(":selected").val();
+var options = new Array();
+$('#choices-multiple-remove-button > option:selected').each(
+     function(i){
+         options[i] = $(this).text();
+     });
+     downloadTemplateObject.moduleName=moduleName;
+     downloadTemplateObject.moduleTasks =  new Array();
+     downloadTemplateObject.moduleTasks =options;
+     $.ajax({
+                type : "POST",
+                url : "/evosys/bankaccount/downloadTemplateModule",
+                dataType: "json",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                data : JSON.stringify(downloadTemplateObject),
+                success : function(response) {
+                   alert('test submitted');
+                },
+                error : function(e) {
+                   alert(e.message);
+                }
+            });
 
 
 }

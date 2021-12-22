@@ -4,8 +4,6 @@
 </head>
 <head>
     <script th:src="@{/js/downloadTemplate.js}" type="text/javascript"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
 </head>
 <body>
 <header th:insert="fragments.html :: nav"></header>
@@ -35,6 +33,7 @@ This is Download Template Page
 <div class="row row-cols-lg-auto g-3 align-items-center">
         <div class="col-auto">
     <input type="button" id="btn"  value="Download Template" onclick="javascript:awesomeClick();" />
+    <input type="button" id="downloadTemplateButton"  value="Download Fusion Template" onclick="javascript:downloadFusionTemplate();" />
     <input type="hidden" id="moduleName1" th:value="${moduleName}">
         </div>
             <!--<div class="col-auto">

@@ -30,6 +30,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -205,5 +206,13 @@ public class BankAccountController {
         System.out.println(studentAnswers.toString());
         return new ModelAndView("bankaccount/downloadTemplate");
     }*/
+
+    @RequestMapping(path = "/downloadTemplateModule",method = RequestMethod.POST)
+    public ModelAndView submitTest(@RequestBody DownloadTemplate downloadTemplate)
+    {
+        System.out.println(downloadTemplate.getModuleName());
+        downloadTemplate.getModuleTasks().forEach(System.out::println);
+        return new ModelAndView("bankaccount/downloadTemplate");
+    }
 
 }
