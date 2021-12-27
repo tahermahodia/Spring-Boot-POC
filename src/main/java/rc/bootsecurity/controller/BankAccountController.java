@@ -1,5 +1,8 @@
 package rc.bootsecurity.controller;
 
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddressList;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -26,6 +29,7 @@ import rc.bootsecurity.validator.ObjectValidator;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -210,7 +214,44 @@ public class BankAccountController {
     @RequestMapping(path = "/downloadTemplateModule",method = RequestMethod.POST)
     @ResponseBody
     public DownloadTemplate submitTest(@RequestBody DownloadTemplate downloadTemplate) throws IOException {
-     return downloadTemplate;
+        try {
+            //creating an instance of Workbook class
+            HSSFWorkbook wb = new HSSFWorkbook();
+            //creates an excel file at the specified location
+            FileOutputStream fileOut = new FileOutputStream("D:\\demo\\BankStatement.xlsx");
+            //invoking creatSheet() method and passing the name of the sheet to be create
+            HSSFSheet sheet = wb.createSheet("January");
+            //creating the 0th row using the createRow() method
+            HSSFRow rowhead = sheet.createRow((short) 0);
+            //creating cell by using the createCell() method and setting the values to the cell by using the setCellValue() method
+            rowhead.createCell(0).setCellValue("S.No.");
+            rowhead.createCell(1).setCellValue("Customer Name");
+            rowhead.createCell(2).setCellValue("Account Number");
+            rowhead.createCell(3).setCellValue("e-mail");
+            rowhead.createCell(4).setCellValue("Balance");
+            //creating the 1st row
+            HSSFRow row = sheet.createRow((short) 1);
+            //inserting data in the first row
+            row.createCell(0).setCellValue("1");
+            row.createCell(1).setCellValue("John William");
+            row.createCell(2).setCellValue("9999999");
+            row.createCell(3).setCellValue("william.john@gmail.com");
+            row.createCell(4).setCellValue("700000.00");
+            wb.write(fileOut);
+            //closing the Stream
+            fileOut.close();
+            //closing the workbook
+            wb.close();
+            //prints the message on the console
+            System.out.println("Excel file has been generated successfully.");
+            downloadTemplate.setModuleName("BankStatement.xlsx");
+            return downloadTemplate;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return  null;
     }
 
 }

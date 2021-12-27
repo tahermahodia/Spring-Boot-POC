@@ -11,10 +11,11 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.WebApplicationInitializer;
 
 
 @SpringBootApplication
-public class BootSecurityApplication extends SpringBootServletInitializer {
+public class BootSecurityApplication extends SpringBootServletInitializer implements WebApplicationInitializer{
 
     public static void main(String[] args) {
         try {

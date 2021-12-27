@@ -39,6 +39,7 @@ public class JWTFilter extends GenericFilterBean {
                     if (tokenProvider.validateToken(jwt)) {
                         Authentication authentication = this.tokenProvider.getAuthentication(jwt);
                         SecurityContextHolder.getContext().setAuthentication(authentication);
+                        httpServletRequest.getSession().setAttribute("NOTES_SESSION", "tahermohaidya@gmail.com");
                     }
                 }
             }
