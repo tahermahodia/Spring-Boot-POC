@@ -1,9 +1,5 @@
 package rc.bootsecurity.model;
 
-import javax.persistence.*;
-import java.util.List;
-
-
 public class WorkBookSheet {
     private int workBookSheetId;
     private int workBookId;

@@ -1,10 +1,5 @@
 package rc.bootsecurity.model;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class WorkBook {
     private int workbookId;
     private String workbookName;

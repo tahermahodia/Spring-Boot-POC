@@ -29,12 +29,10 @@ import rc.bootsecurity.validator.ObjectValidator;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -115,6 +113,7 @@ public class BankAccountController {
 
     @RequestMapping(value = "/downloadTemplate", method = RequestMethod.GET)
     public ModelAndView downloadTemplateGet(Model model) {
+        logger.info(">>>> Inside Download Template <<<<");
         ModelAndView mav = new ModelAndView();
         List<WorkBook> ModuleList = new ArrayList<WorkBook>();
         ModuleList = bankAccountDAO.getModuleName();
