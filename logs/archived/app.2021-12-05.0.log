@@ -1,7 +1,0 @@
-2021-12-05 12:57:13,815 INFO rc.bootsecurity.BootSecurityApplication [main] Starting BootSecurityApplication on IN-AH6LPW101605 with PID 9312 (C:\Users\Taher762320\IdeaProjects\Forms\target\classes started by Taher762320 in C:\Users\Taher762320\IdeaProjects\Forms)
-2021-12-05 12:57:13,819 DEBUG rc.bootsecurity.BootSecurityApplication [main] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
-2021-12-05 12:57:13,822 INFO rc.bootsecurity.BootSecurityApplication [main] No active profile set, falling back to default profiles: default
-2021-12-05 12:57:16,403 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] Code archive: C:\Users\Taher762320\.m2\repository\org\springframework\boot\spring-boot\2.1.0.RELEASE\spring-boot-2.1.0.RELEASE.jar
-2021-12-05 12:57:16,404 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] Code archive: C:\Users\Taher762320\.m2\repository\org\springframework\boot\spring-boot\2.1.0.RELEASE\spring-boot-2.1.0.RELEASE.jar
-2021-12-05 12:57:16,404 DEBUG rc.bootsecurity.BootSecurityApplication$1 [main] None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
-2021-12-05 12:57:22,780 INFO rc.bootsecurity.BootSecurityApplication [main] Started BootSecurityApplication in 9.477 seconds (JVM running for 11.236)
