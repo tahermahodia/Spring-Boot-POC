@@ -5,20 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-public class GlideHomeModel {
+public class GlideHomeSheets {
 
     private Long track_id;
     private String track_name;
-    private String workbook_name;
     private Long workbook_id;
-    private List<GlideHomeSheets> glideHomeSheetsList;
-
+    private String workbook_name;
+    private String sheet_name;
+    private String sheet_code;
+    private Long sheet_id;
 
 
 }

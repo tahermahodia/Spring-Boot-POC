@@ -12,6 +12,8 @@ import rc.bootsecurity.controller.BankAccountController;
 import rc.bootsecurity.glideService.GlideHomeService;
 import rc.bootsecurity.service.PostService;
 
+import javax.jws.WebParam;
+
 @Controller
 @RequestMapping("glidepages")
 public class GlideHomeController {
@@ -29,6 +31,14 @@ public class GlideHomeController {
         model.addAttribute("posts", glideHomeService.getPage(pageNumber, size));
         //return "posts";
         return "glidepages/pagelist";
+    }
+
+
+    @RequestMapping(value = "/downloadtemplate",method = RequestMethod.GET)
+    public String downloadWorkBookTemplate(@RequestParam(value = "workBookName", required = true) String workBookName,Model model)
+    {
+        logger.info(">>>>> "+workBookName.toString()+"");
+        return null;
     }
 
 

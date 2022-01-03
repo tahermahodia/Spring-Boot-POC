@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:insert="fragments.html :: headerfiles"></head>
+<script th:src="@{/js/pagelist.js}" type="text/javascript"></script>
 <body>
 <header th:insert="fragments.html :: nav"></header>
 <!-- Page content goes here -->
@@ -19,16 +20,43 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="post : ${posts.page}">
-                    <td>+</td>
+                <tr th:id="${post.track_id}" th:each="post : ${posts.page}" class="pa-dt-master-account-level"
+                    data-account-level="master">
+                    <td><a th:data-param1="${post.track_id}" th:data-param2="${post.workbook_name}"
+                           onclick="awesomeClickCollapse(this);" class="pa-dt-toggle toggleLarge" href="#">+</a></td>
                     <td th:text="${post.track_name}">title</td>
                     <td th:text="${post.workbook_name}">body</td>
-                    <td>Download</td>
+                    <td><a th:data-param1="${post.track_id}" th:data-param2="${post.workbook_name}"
+                           th:data-param3="${post.workbook_id}"
+                           onclick="awesomeClick(this);" href="#">Download</a>
+                        <!--<button th:data-param1="${post.track_id}" th:data-param2="${post.workbook_name}" onclick="awesomeClick(this);">Download</button>-->
+                    </td>
+
                     <td>Upload</td>
+                </tr>
+
+                <!-- GROUP ACCOUNT -->
+                <span th:each="word : ${posts.page}">
+                    <tr id="test1-1" class="pa-dt-group-account-level"
+                        th:data-owner=${relatedWord.track_id} data-account-level="group" th:each="relatedWord: ${word.glideHomeSheetsList}">
+                        <td></td>
+                        <td></td>
+                        <td th:text="${relatedWord.sheet_code}">title</td>
+                        <td th:text="${relatedWord.sheet_name}">title</td>
+                        <td></td>
+                    </tr>
+                </span>
+                <!--<tr id="test1-1" class="pa-dt-group-account-level"
+                    th:data-owner=${post.track_id} data-account-level="group" th:each="post : ${posts.page}">
+                        <td>Taher134</td>
+                        <td>Taher</td>
+                        <td th:text="${post1.sheet_name}">title</td>
+                        <td></td>
+                    </tr>-->
+
                 </tr>
                 </tbody>
             </table>
-
             <nav aria-label="Page navigation" class="paging">
                 <ul class="pagination" th:if="${posts.page.totalPages > 1}">
                     <li class="page-item" th:classappend="${!posts.paging.isPrevEnabled()? 'disabled' : ''}">
