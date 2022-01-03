@@ -30,7 +30,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         JWTFilter customFilter = new JWTFilter(this.tokenProvider);
         http.addFilterAfter(customFilter, UsernamePasswordAuthenticationFilter.class);
 
-        http.authorizeRequests().antMatchers("/*.css", "/resources/**", "/*.js").permitAll()
+        http.authorizeRequests().antMatchers("/*.css").permitAll()
+                .antMatchers("/resources/**").permitAll()
+                .antMatchers("/*.js").permitAll()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/authenticate").permitAll()
@@ -39,9 +41,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/font/**").permitAll()
                 .antMatchers("/images/**").permitAll()
                 .antMatchers("/fontawesome/**").permitAll()
-                .anyRequest().fullyAuthenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")
+                .anyRequest().fullyAuthenticated()
                 .and().formLogin().loginPage("/login").failureUrl("/login?error").permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

@@ -5,13 +5,13 @@
 <body>
 <header th:insert="fragments.html :: nav"></header>
 <!-- Page content goes here -->
-<div class="container" align="center">
-    <div th:if="${errorMessage!=null}"
-         style="color:red;font-style:italic" th:utext="${errorMessage}">..
+<div align="center" class="container">
+    <div style="color:red;font-style:italic"
+         th:if="${errorMessage!=null}" th:utext="${errorMessage}">..
     </div>
     This is Upload Excel Page
-    <form th:action="@{/bankaccount/import}" method="post" enctype="multipart/form-data">
-        <input type="file" th:name="file"/>
+    <form enctype="multipart/form-data" method="post" th:action="@{/bankaccount/import}">
+        <input th:name="file" type="file"/>
         <input th:type="submit" value="Import"/>
     </form>
 </div>

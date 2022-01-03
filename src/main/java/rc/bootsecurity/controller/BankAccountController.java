@@ -44,6 +44,7 @@ public class BankAccountController {
     static Sheet sheet = null;
     @Autowired
     private BankAccountDAO bankAccountDAO;
+
     @Autowired
     private ObjectValidator objectValidator;
 
@@ -52,24 +53,19 @@ public class BankAccountController {
         DataValidationConstraint constraint = helper.createExplicitListConstraint(listOfValue);
         CellRangeAddressList range = new CellRangeAddressList(firstRow, lastRow, firstCol, lastCol);
         DataValidation validation = helper.createValidation(constraint, range);
-
         validation.setErrorStyle(DataValidation.ErrorStyle.STOP);
         validation.setSuppressDropDownArrow(true);
         validation.setEmptyCellAllowed(false);
         validation.setShowPromptBox(true);
         validation.setShowErrorBox(true);
-
         sheet.addValidationData(validation);
-
         return true;
     }
 
     @RequestMapping(value = "/accountpage", method = RequestMethod.GET)
     public String showBankAccounts(Model model) {
         List<BankAccountInfo> list = bankAccountDAO.getBankAccounts();
-
         model.addAttribute("accountInfos", list);
-
         return "bankaccount/accountsPage";
     }
 
@@ -210,7 +206,7 @@ public class BankAccountController {
         return new ModelAndView("bankaccount/downloadTemplate");
     }*/
 
-    @RequestMapping(path = "/downloadTemplateModule",method = RequestMethod.POST)
+    @RequestMapping(path = "/downloadTemplateModule", method = RequestMethod.POST)
     @ResponseBody
     public DownloadTemplate submitTest(@RequestBody DownloadTemplate downloadTemplate) throws IOException {
         try {
@@ -245,12 +241,10 @@ public class BankAccountController {
             System.out.println("Excel file has been generated successfully.");
             downloadTemplate.setModuleName("BankStatement.xlsx");
             return downloadTemplate;
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return  null;
+        return null;
     }
 
 }

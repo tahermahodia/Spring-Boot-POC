@@ -9,12 +9,15 @@ public class WorkBook {
     private String end_Date;
     private WorkBookSheet workBookSheet;
 
-    public void setWorkBookSheet(WorkBookSheet workBookSheet) {
-        this.workBookSheet = workBookSheet;
+    public WorkBook() {
     }
 
     public WorkBookSheet getWorkBookSheet() {
         return workBookSheet;
+    }
+
+    public void setWorkBookSheet(WorkBookSheet workBookSheet) {
+        this.workBookSheet = workBookSheet;
     }
 
     public int getWorkbookId() {
@@ -63,8 +66,5 @@ public class WorkBook {
 
     public void setEnd_Date(String end_Date) {
         this.end_Date = end_Date;
-    }
-
-    public WorkBook() {
     }
 }

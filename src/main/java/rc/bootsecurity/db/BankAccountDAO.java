@@ -77,12 +77,11 @@ public class BankAccountDAO extends JdbcDaoSupport {
         addAmount(fromAccountId, -amount);
     }
 
-    public List<WorkBook> getModuleName()
-    {
+    public List<WorkBook> getModuleName() {
         String sql = WorkBookMapper.BASE_SQL;
         Object[] params = new Object[]{};
         WorkBookMapper mapper = new WorkBookMapper();
-        List<WorkBook> list = this.getJdbcTemplate().query(sql,params,mapper);
+        List<WorkBook> list = this.getJdbcTemplate().query(sql, params, mapper);
         return list;
     }
 }

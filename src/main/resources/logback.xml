@@ -39,16 +39,15 @@
     </root>
 
     <logger name="org.springframework.jdbc.core.JdbcTemplate">
-        <level value="TRACE" />
+        <level value="TRACE"/>
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
     <logger name="org.springframework.jdbc.core.StatementCreatorUtils">
-        <level value="TRACE" />
+        <level value="TRACE"/>
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
-
 
 
 </configuration>

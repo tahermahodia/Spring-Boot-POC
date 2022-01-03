@@ -15,14 +15,12 @@ import org.springframework.web.WebApplicationInitializer;
 
 
 @SpringBootApplication
-public class BootSecurityApplication extends SpringBootServletInitializer implements WebApplicationInitializer{
+public class BootSecurityApplication extends SpringBootServletInitializer implements WebApplicationInitializer {
 
     public static void main(String[] args) {
         try {
             SpringApplication.run(BootSecurityApplication.class, args);
-        }
-        catch (Throwable throwable)
-        {
+        } catch (Throwable throwable) {
             System.out.println(throwable.toString());
             throwable.printStackTrace();
         }

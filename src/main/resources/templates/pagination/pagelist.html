@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<!-- Page content goes here -->
+<div align="center" class="container">
+    <div class="row">
+        <div class="col-lg-10 mt-5 mb-5">
+            <table class="table table-bordered table-responsive-sm" id="posts">
+                <thead>
+                <tr>
+                    <th><a th:href="@{'/pagination/pagelist'  + '?sortField=ID&sortDir=' + asc}">
+                        ID</a></th>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="post : ${posts.page}">
+                    <td th:text="${post.id}">id</td>
+                    <td th:text="${post.title}">title</td>
+                    <td th:text="${post.body}">body</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <nav aria-label="Page navigation" class="paging">
+                <ul class="pagination" th:if="${posts.page.totalPages > 1}">
+                    <li class="page-item" th:classappend="${!posts.paging.isPrevEnabled()? 'disabled' : ''}">
+                        <a class="page-link"
+                           tabindex="-1"
+                           th:href="@{'/pagination/pagelist/?pageNumber=' + ${posts.paging.pageNumber - 1}}">Previous</a>
+                    </li>
+                    <th:block th:each="item : ${posts.paging.getItems()}">
+                        <li class="page-item" th:classappend="${item.index == posts.paging.pageNumber? 'active' : ''}"
+                            th:if="${item.pageItemType.name() == 'PAGE'}">
+                            <a class="page-link" th:href="@{'/pagination/pagelist/?pageNumber=' + ${item.index}}"
+                               th:text="${item.index}"></a>
+                        </li>
+                        <li class="page-item disabled" th:if="${item.pageItemType.name() == 'DOTS'}">
+                            <a class="page-link" href="#">...</a>
+                        </li>
+                    </th:block>
+                    <li class="page-item" th:classappend="${!posts.paging.isNextEnabled()? 'disabled' : ''}">
+                        <a class="page-link"
+                           th:href="@{'/pagination/pagelist/?pageNumber=' + ${posts.paging.pageNumber + 1}}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+</div>
+<footer th:insert="fragments.html :: footer"></footer>
+</body>
+</html>

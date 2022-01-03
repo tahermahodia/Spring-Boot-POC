@@ -6,6 +6,11 @@ public class DownloadTemplate {
     private String moduleName;
     private List<String> moduleTasks;
 
+    public DownloadTemplate(String moduleName, List<String> moduleTasks) {
+        this.moduleName = moduleName;
+        this.moduleTasks = moduleTasks;
+    }
+
     public String getModuleName() {
         return moduleName;
     }
@@ -19,11 +24,6 @@ public class DownloadTemplate {
     }
 
     public void setModuleTasks(List<String> moduleTasks) {
-        this.moduleTasks = moduleTasks;
-    }
-
-    public DownloadTemplate(String moduleName, List<String> moduleTasks) {
-        this.moduleName = moduleName;
         this.moduleTasks = moduleTasks;
     }
 

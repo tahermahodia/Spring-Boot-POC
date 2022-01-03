@@ -10,7 +10,8 @@
         <div class="row d-inline-flex border-right-0" style="border-width:thick">
             <!-- Gallery Item 1 -->
 
-            <div class="col-6 col-sm-4 col-md-3 p-2" th:onclick="window.location.href = '/evosys/bankaccount/uploadexcel';">
+            <div class="col-6 col-sm-4 col-md-3 p-2"
+                 th:onclick="window.location.href = '/evosys/bankaccount/uploadexcel';">
                 <div class="card h-100">
                     <img class="card-img-top" th:src="@{/images/excelupload.png}"/>
                     <h4 class="card-title text-center">Excel Upload</h4>
@@ -19,14 +20,15 @@
             </div>
 
             <!-- Gallery Item 2 -->
-            <div class="col-6 col-sm-4 col-md-3 p-2" th:onclick="window.location.href = '/evosys/bankaccount/downloadTemplate';">
+            <div class="col-6 col-sm-4 col-md-3 p-2"
+                 th:onclick="window.location.href = '/evosys/bankaccount/downloadTemplate';">
                 <div class="card h-100">
                     <img class="card-img-top" th:src="@{/images/csvdownload.png}"/>
                     <h4 class="card-title text-center">Csv Download</h4>
                 </div>
             </div>
             <!-- Gallery Item 3 -->
-            <div class="col-6 col-sm-4 col-md-3 p-2">
+            <div class="col-6 col-sm-4 col-md-3 p-2" th:onclick="window.location.href = '/evosys/pagination/pagelist';">
                 <div class="card h-100">
                     <img class="card-img-top" th:src="@{/images/csv.png}"/>
                     <h4 class="card-title text-center">Csv Upload</h4>

@@ -10,35 +10,38 @@
 <!-- Page content goes here -->
 This is Download Template Page
 <div class="row row-cols-lg-auto g-3 align-items-center">
-            <div class="col-auto">
-                <div th:if="${errorMessage!=null}"
-                    style="color:red;font-style:italic" th:utext="${errorMessage}">..
-                </div>
-            </div>
-        <div class="col-auto">
-        <select class="form-control"   id="dropOperator">
-            <option value="0">select Model</option>
-            <option th:each="operator : ${moduleName}" th:value="${operator.workbookId}" th:text="${operator.workbookName}"></option>
-        </select>
-        </div>
     <div class="col-auto">
-        <div class="row d-flex justify-content-center mt-100" >
-            <div class="col-md-6"> <select id="choices-multiple-remove-button" placeholder="Select upto 5 tags" multiple>
+        <div style="color:red;font-style:italic"
+             th:if="${errorMessage!=null}" th:utext="${errorMessage}">..
+        </div>
+    </div>
+    <div class="col-auto">
+        <select class="form-control" id="dropOperator">
+            <option value="0">select Model</option>
+            <option th:each="operator : ${moduleName}" th:text="${operator.workbookName}"
+                    th:value="${operator.workbookId}"></option>
+        </select>
+    </div>
+    <div class="col-auto">
+        <div class="row d-flex justify-content-center mt-100">
+            <div class="col-md-6"><select id="choices-multiple-remove-button" multiple placeholder="Select upto 5 tags">
                 <option value="0">select Task</option>
-                <option th:each="operator : ${moduleName}" th:value="${operator.workbookId}" th:text="${operator.workBookSheet.workBookSheetName}"></option>
-            </select> </div>
+                <option th:each="operator : ${moduleName}" th:text="${operator.workBookSheet.workBookSheetName}"
+                        th:value="${operator.workbookId}"></option>
+            </select></div>
         </div>
     </div>
 </div>
 <div class="row row-cols-lg-auto g-3 align-items-center">
-        <div class="col-auto">
-    <input type="button" id="btn"  value="Download Template" onclick="javascript:awesomeClick();" />
-    <input type="button" id="downloadTemplateButton"  value="Download Fusion Template" onclick="javascript:downloadFusionTemplate();" />
-    <input type="hidden" id="moduleName1" th:value="${moduleName}">
-        </div>
-            <!--<div class="col-auto">
-                <a class="dropdown-item" href="#" th:href="@{/bankaccount/download?param=StudentRecord.xlsx}">Download File</a>
-            </div>-->
+    <div class="col-auto">
+        <input id="btn" onclick="javascript:awesomeClick();" type="button" value="Download Template"/>
+        <input id="downloadTemplateButton" onclick="javascript:downloadFusionTemplate();" type="button"
+               value="Download Fusion Template"/>
+        <input id="moduleName1" th:value="${moduleName}" type="hidden">
+    </div>
+    <!--<div class="col-auto">
+        <a class="dropdown-item" href="#" th:href="@{/bankaccount/download?param=StudentRecord.xlsx}">Download File</a>
+    </div>-->
 </div>
 <footer th:insert="fragments.html :: footer"></footer>
 </body>

@@ -15,6 +15,18 @@ public class WorkBookSheet {
 
     }
 
+    public WorkBookSheet(int workBookSheetId, int workBookId, String workBookSheetName, String manualActivity, String independent, String dataValidationPro, String whoCols, String stageTableName, String tableName) {
+        this.workBookSheetId = workBookSheetId;
+        this.workBookId = workBookId;
+        this.workBookSheetName = workBookSheetName;
+        this.manualActivity = manualActivity;
+        this.independent = independent;
+        this.dataValidationPro = dataValidationPro;
+        this.whoCols = whoCols;
+        this.stageTableName = stageTableName;
+        this.tableName = tableName;
+    }
+
     public int getWorkBookSheetId() {
         return workBookSheetId;
     }
@@ -84,18 +96,6 @@ public class WorkBookSheet {
     }
 
     public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public WorkBookSheet(int workBookSheetId, int workBookId, String workBookSheetName, String manualActivity, String independent, String dataValidationPro, String whoCols, String stageTableName, String tableName) {
-        this.workBookSheetId = workBookSheetId;
-        this.workBookId = workBookId;
-        this.workBookSheetName = workBookSheetName;
-        this.manualActivity = manualActivity;
-        this.independent = independent;
-        this.dataValidationPro = dataValidationPro;
-        this.whoCols = whoCols;
-        this.stageTableName = stageTableName;
         this.tableName = tableName;
     }
 }

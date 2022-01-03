@@ -9,21 +9,21 @@
     <div align="center">
         <h1>Enter New Sale</h1>
         <br/>
-        <form action="#" th:action="@{/management/save}" th:object="${sale}"
-              method="post">
+        <form action="#" method="post" th:action="@{/management/save}"
+              th:object="${sale}">
 
             <table border="0" cellpadding="10">
                 <tr>
                     <td>Item Name:</td>
-                    <td><input type="text" th:field="*{item}"/></td>
+                    <td><input th:field="*{item}" type="text"/></td>
                 </tr>
                 <tr>
                     <td>Quantity:</td>
-                    <td><input type="text" th:field="*{quantity}"/></td>
+                    <td><input th:field="*{quantity}" type="text"/></td>
                 </tr>
                 <tr>
                     <td>Amount (USD):</td>
-                    <td><input type="text" th:field="*{amount}"/></td>
+                    <td><input th:field="*{amount}" type="text"/></td>
                 </tr>
                 <tr>
                     <td colspan="2">

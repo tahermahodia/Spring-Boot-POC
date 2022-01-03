@@ -13,24 +13,24 @@
 </div>
 <div align="center">
     <h2>Send Money</h2>
-    <div th:if="${errorMessage!=null}"
-         style="color:red;font-style:italic" th:utext="${errorMessage}">..
+    <div style="color:red;font-style:italic"
+         th:if="${errorMessage!=null}" th:utext="${errorMessage}">..
     </div>
 
-    <form th:action="@{/bankaccount/sendMoney}" th:object="${sendMoneyForm}" method="POST">
+    <form method="POST" th:action="@{/bankaccount/sendMoney}" th:object="${sendMoneyForm}">
         <table>
 
             <tr>
                 <td>From Bank Account Id</td>
-                <td><input type="text" th:field="*{fromAccountId}"/></td>
+                <td><input th:field="*{fromAccountId}" type="text"/></td>
             </tr>
             <tr>
                 <td>To Bank Account Id</td>
-                <td><input type="text" th:field="*{toAccountId}"/></td>
+                <td><input th:field="*{toAccountId}" type="text"/></td>
             </tr>
             <tr>
                 <td>Amount</td>
-                <td><input type="text" th:field="*{amount}"/></td>
+                <td><input th:field="*{amount}" type="text"/></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
