@@ -24,6 +24,7 @@ public class GlideHomeService {
     private GlideHomeDAO glideHomeDAO;
 
     public Paged<GlideHomeModel> getPage(int pageNumber, int size) {
+        logger.info(">>> Inside Glide Home Service <<<");
         PageRequest request = PageRequest.of(pageNumber - 1, size, Sort.Direction.ASC, "TRACK_ID");
         Page<GlideHomeModel> postPage = glideHomeDAO.findAll(request);
         return new Paged<>(postPage, Paging.of(postPage.getTotalPages(), pageNumber, size));
